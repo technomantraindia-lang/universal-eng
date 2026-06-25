@@ -2360,9 +2360,9 @@ ul { list-style: none; }
   stroke-width: 10;
   fill: none;
   stroke-linecap: round;
-  stroke-dasharray: 2600;
-  stroke-dashoffset: 2600;
-  transition: stroke-dashoffset 2.6s cubic-bezier(0.25, 1, 0.5, 1);
+  stroke-dasharray: 3500;
+  stroke-dashoffset: 3500;
+  transition: stroke-dashoffset 3.4s cubic-bezier(0.25, 1, 0.5, 1);
   filter: drop-shadow(0 0 12px rgba(226, 7, 20, 0.35));
 }
 
@@ -2410,12 +2410,12 @@ ul { list-style: none; }
 }
 
 .stage-top {
-  transform: translate(-50%, -100%) translateY(30px);
+  transform: translate(-50%, -100%) translateY(44px);
   flex-direction: column;
 }
 
 .stage-bottom {
-  transform: translate(-50%, 0) translateY(30px);
+  transform: translate(-50%, 0) translateY(16px);
   flex-direction: column;
 }
 
@@ -2424,7 +2424,7 @@ ul { list-style: none; }
   top: var(--y) !important;
   bottom: auto;
   width: 320px;
-  transform: translate(-50%, 0) translateY(30px);
+  transform: translate(-50%, 0) translateY(16px);
   flex-direction: column;
 }
 
@@ -2433,15 +2433,15 @@ ul { list-style: none; }
 }
 
 .pipeline-section.visible .stage-top {
-  transform: translate(-50%, -100%) translateY(0);
+  transform: translate(-50%, -100%) translateY(14px);
 }
 
 .pipeline-section.visible .stage-bottom {
-  transform: translate(-50%, 0) translateY(0);
+  transform: translate(-50%, 0) translateY(-14px);
 }
 
 .pipeline-section.visible .stage-center {
-  transform: translate(-50%, 0) translateY(0);
+  transform: translate(-50%, 0) translateY(-14px);
 }
 
 .pipeline-section.visible .pipeline-stage:nth-child(1) { transition-delay: 0.25s; }
