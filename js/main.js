@@ -20,7 +20,14 @@ function initNavbar() {
   if (!navbar) return;
 
   const onScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    // Hide navbar when scrolled down, only show it at the very top of the page
+    if (window.scrollY > 80) {
+      navbar.classList.add('nav-hidden');
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('nav-hidden');
+      navbar.classList.remove('scrolled');
+    }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -30,21 +37,37 @@ function initNavbar() {
 /* Intersection Observer for reveal animations */
 function initReveal() {
   const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  if (!elements.length) return;
+  if (elements.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    elements.forEach((el) => observer.observe(el));
+  }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  elements.forEach((el) => observer.observe(el));
+  // Section level scroll reveals
+  const sections = document.querySelectorAll('.section-reveal');
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+    );
+    sections.forEach((sec) => sectionObserver.observe(sec));
+  }
 }
 
 /* Animated counters */

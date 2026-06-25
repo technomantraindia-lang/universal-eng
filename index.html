@@ -26,6 +26,8 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#brands">Products</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="mobile-cta-item"><a href="tel:+919067610118" class="btn btn-outline">Call Now</a></li>
+        <li class="mobile-cta-item"><a href="#contact" class="btn btn-primary">Get Quote</a></li>
       </ul>
       <div class="nav-cta">
         <a href="tel:+919067610118" class="btn btn-outline">Call Now</a>
@@ -40,37 +42,13 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80" alt="Industrial Engineering">
+      <video autoplay loop muted playsinline class="hero-video">
+        <source src="image/videp/High_Quality_Banner_Video_Prom_gwr_video_mvp.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-grid-lines"></div>
-    <div class="container hero-content">
-      <div class="hero-badge">
-        <span class="pulse"></span>
-        Engineering &amp; Solutions
-      </div>
-      <h1>Welcome to<br><span class="highlight">Universal Engineering</span><br>&amp; Solution</h1>
-      <p class="hero-subtitle">The Company, Piping Engineers call home</p>
-      <p class="hero-tagline">Bringing <em>Turnkey Piping Solutions</em> Under One Roof</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">Explore Services →</a>
-        <a href="#about" class="btn btn-outline">Our Legacy</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="number" data-count="29" data-suffix="+">0</div>
-          <div class="label">Years of Excellence</div>
-        </div>
-        <div class="hero-stat">
-          <div class="number" data-count="1" data-suffix="%">0</div>
-          <div class="label">Error Rate</div>
-        </div>
-        <div class="hero-stat">
-          <div class="number" data-count="100" data-suffix="+">0</div>
-          <div class="label">Brands — One Partner</div>
-        </div>
-      </div>
-    </div>
     <div class="hero-scroll">
       <div class="mouse"></div>
       Scroll
@@ -100,7 +78,7 @@
   </div>
 
   <!-- About -->
-  <section class="about" id="about">
+  <section class="about section-reveal section-reveal-left" id="about">
     <div class="container about-grid">
       <div class="about-image reveal-left">
         <div class="about-image-frame"></div>
@@ -119,7 +97,7 @@
   </section>
 
   <!-- Stats -->
-  <section class="stats-banner">
+  <section class="stats-banner section-reveal section-reveal-bottom">
     <div class="container">
       <div class="stats-grid stagger-children">
         <div class="stat-item reveal">
@@ -143,7 +121,7 @@
   </section>
 
   <!-- Services -->
-  <section class="services" id="services">
+  <section class="services section-reveal section-reveal-right" id="services">
     <div class="container">
       <div class="services-header reveal">
         <span class="section-label">What We Do</span>
@@ -233,7 +211,7 @@
   </section>
 
   <!-- Brands Portfolio -->
-  <section class="brands" id="brands">
+  <section class="brands section-reveal section-reveal-left" id="brands">
     <div class="container">
       <div class="reveal">
         <span class="section-label">Our Portfolio</span>
@@ -298,7 +276,7 @@
   </section>
 
   <!-- Why Choose UES? Pipeline Timeline Section -->
-  <section class="pipeline-section" id="why-ues-timeline">
+  <section class="pipeline-section section-reveal section-reveal-bottom" id="why-ues-timeline">
     <div class="container">
       <div class="reveal" style="text-align: center;">
         <span class="section-label" style="justify-content: center;">Why Choose Us</span>
@@ -354,7 +332,7 @@
   </section>
 
   <!-- Next 3 Moves -->
-  <section class="next-moves" id="moves">
+  <section class="next-moves section-reveal section-reveal-right" id="moves">
     <div class="container">
       <div class="reveal" style="text-align: center;">
         <span class="section-label" style="justify-content: center;">Our Vision</span>
@@ -399,7 +377,7 @@
   </section>
 
   <!-- Capabilities Section -->
-  <section class="capabilities-tabs-section" id="tools">
+  <section class="capabilities-tabs-section section-reveal section-reveal-left" id="tools">
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 48px;">
         <span class="section-label" style="justify-content: center;">Capabilities</span>
@@ -583,7 +561,7 @@
   </section>
 
   <!-- Director Message -->
-  <section class="director" id="director">
+  <section class="director section-reveal section-reveal-right" id="director">
     <div class="container">
       <div class="director-card reveal">
         <div class="director-img">
@@ -602,7 +580,7 @@
   </section>
 
   <!-- Featured Products / Supplies -->
-  <section class="products" id="featured-products">
+  <section class="products section-reveal section-reveal-left" id="featured-products">
     <div class="container">
       <div class="reveal" style="text-align: center;">
         <span class="section-label" style="justify-content: center;">Supplies Catalog</span>
@@ -771,7 +749,7 @@
   </section>
 
   <!-- Clientele -->
-  <section class="clientele" id="clientele">
+  <section class="clientele section-reveal section-reveal-bottom" id="clientele">
     <div class="container">
       <div class="reveal">
         <span class="section-label" style="justify-content: center;">Our Clients</span>
@@ -817,7 +795,7 @@
   </section>
 
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section class="contact section-reveal section-reveal-right" id="contact">
     <div class="container">
       <div class="reveal" style="text-align: center; margin-bottom: 48px;">
         <span class="section-label" style="justify-content: center;">Get In Touch</span>
@@ -837,10 +815,12 @@
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
               </div>
-              <div class="contact-inquire-text">
-                <a href="tel:+919067610118">+91 90676 10118</a> (Office) &bull; 
-                <a href="tel:+919824311877">+91 98243 11877</a> (Meet) &bull; 
-                <a href="tel:+919824111877">+91 98241 11877</a> (Ashvin)
+              <div class="contact-inquire-text phone-container">
+                <span class="phone-item"><a href="tel:+919067610118">+91 90676 10118</a> <span class="phone-tag">Office</span></span>
+                <span class="phone-divider">&bull;</span>
+                <span class="phone-item"><a href="tel:+919824311877">+91 98243 11877</a> <span class="phone-tag">Meet</span></span>
+                <span class="phone-divider">&bull;</span>
+                <span class="phone-item"><a href="tel:+919824111877">+91 98241 11877</a> <span class="phone-tag">Ashvin</span></span>
               </div>
             </div>
 
@@ -897,7 +877,7 @@
   </section>
 
   <!-- Google Map section -->
-  <section class="map-section" style="padding-bottom: 80px;">
+  <section class="map-section section-reveal section-reveal-left" style="padding-bottom: 80px;">
     <div class="container">
       <div class="reveal" style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(226, 7, 20, 0.25); height: 400px; position: relative;">
         <iframe 
