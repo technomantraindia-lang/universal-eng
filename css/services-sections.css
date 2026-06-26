@@ -16,7 +16,7 @@
 
 .svc-banner-shell {
   display: grid;
-  grid-template-columns: minmax(380px, 56%) minmax(0, 44%);
+  grid-template-columns: minmax(520px, 64%) minmax(0, 36%);
   min-height: calc(100vh - 54px);
   padding-top: 108px;
 }
@@ -91,7 +91,7 @@
 .svc-banner-copy {
   position: relative;
   z-index: 2;
-  max-width: 580px;
+  max-width: 720px;
 }
 
 .svc-banner-title {
@@ -116,7 +116,7 @@
   color: rgba(255, 255, 255, 0.68);
   line-height: 1.78;
   margin-bottom: 32px;
-  max-width: 520px;
+  max-width: 680px;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -559,7 +559,7 @@
 /* Banner responsive */
 @media (max-width: 1200px) {
   .svc-banner-shell {
-    grid-template-columns: minmax(320px, 52%) minmax(0, 48%);
+    grid-template-columns: minmax(440px, 60%) minmax(0, 40%);
   }
 
   .svc-banner-stage {
@@ -735,18 +735,18 @@
 /* Portfolio grid with center red line */
 .svc-portfolio-wrap {
   position: relative;
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 8px;
 }
 
 .svc-portfolio-rail {
   position: absolute;
-  left: 50%;
+  left: 18px;
   top: 0;
   bottom: 0;
   width: 3px;
-  transform: translateX(-50%);
+  transform: none;
   z-index: 0;
   pointer-events: none;
 }
@@ -774,16 +774,16 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 36px;
-  row-gap: 18px;
+  grid-template-columns: 1fr;
+  row-gap: 22px;
+  padding-left: 36px;
 }
 
 .svc-rect-card {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: minmax(280px, 34%) 1fr;
   position: relative;
-  min-height: 168px;
+  min-height: 196px;
   border-radius: 12px;
   overflow: visible;
   background: rgba(16, 16, 16, 0.92);
@@ -814,12 +814,10 @@
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
-.svc-rect-card:nth-child(odd)::after {
-  right: -24px;
-}
-
+.svc-rect-card:nth-child(odd)::after,
 .svc-rect-card:nth-child(even)::after {
   left: -24px;
+  right: auto;
 }
 
 .svc-rect-card.visible::after {
@@ -856,14 +854,14 @@
 .svc-rect-media {
   position: relative;
   overflow: hidden;
-  min-height: 168px;
+  min-height: 196px;
   border-radius: 12px 0 0 12px;
 }
 
 .svc-rect-media img {
   width: 100%;
   height: 100%;
-  min-height: 168px;
+  min-height: 196px;
   object-fit: cover;
   object-position: center 24%;
   filter: brightness(0.82) saturate(1.06);
@@ -899,7 +897,7 @@
 }
 
 .svc-rect-body {
-  padding: 16px 18px 16px;
+  padding: 22px 26px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -909,7 +907,7 @@
 
 .svc-rect-body h3 {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.16rem;
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.02em;
@@ -918,7 +916,7 @@
 }
 
 .svc-rect-body > p {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.55;
   margin-bottom: 8px;
@@ -940,7 +938,7 @@
 .svc-rect-points li {
   position: relative;
   padding-left: 11px;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.62);
   line-height: 1.4;
   white-space: nowrap;
@@ -981,7 +979,7 @@
 }
 
 .svc-tag {
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1323,7 +1321,7 @@
   }
 
   .svc-rect-card {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: minmax(260px, 34%) 1fr;
   }
 
   .svc-modal-grid {
