@@ -1766,32 +1766,37 @@ ul { list-style: none; }
   background: transparent;
   border: none;
   padding: 0;
+  transform: none !important;
 }
 
 .contact-inquire-title {
-  font-family: Georgia, 'Playfair Display', 'Times New Roman', serif;
-  font-size: clamp(2.2rem, 4vw, 2.8rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 2.65rem);
+  font-weight: 800;
   color: var(--white);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-transform: none;
 }
 
 .contact-inquire-title span {
   color: var(--red);
-  font-weight: 700;
+  font-weight: 800;
   margin-right: 4px;
+  font-family: var(--font-display);
 }
 
 .contact-inquire-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 600;
   margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
 
 .contact-inquire-desc {
