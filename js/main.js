@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DTilt();
   initInteractiveOrgChart();
   initProductShowcase();
+  initAboutHeroCarousel();
 });
 
 /* Navbar scroll effect */
@@ -86,6 +87,17 @@ function initReveal() {
     );
     sections.forEach((sec) => sectionObserver.observe(sec));
   }
+
+  // About page: ensure director & roadmap sections are always visible
+  document.querySelectorAll('.director-section, .roadmap-section').forEach((el) => {
+    el.classList.add('revealed');
+  });
+  document.querySelectorAll(
+    '.director-section .reveal, .director-section .reveal-left, .director-section .reveal-right, ' +
+    '.roadmap-section .reveal, .roadmap-section .reveal-left, .roadmap-section .reveal-right'
+  ).forEach((el) => {
+    el.classList.add('visible');
+  });
 }
 
 /* Animated counters */
@@ -468,6 +480,97 @@ function initInteractiveOrgChart() {
       });
     });
   });
+}
+
+/* About page hero — product image carousel */
+function initAboutHeroCarousel() {
+  const carousel = document.getElementById('about-hero-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.hero-carousel-slide');
+  const thumbStrip = document.getElementById('hero-thumb-strip');
+  const captionCat = document.getElementById('hero-caption-cat');
+  const captionTitle = document.getElementById('hero-caption-title');
+  const counter = document.getElementById('hero-carousel-counter');
+  const progressBar = document.getElementById('hero-carousel-progress');
+  const prevBtn = carousel.querySelector('.hero-carousel-prev');
+  const nextBtn = carousel.querySelector('.hero-carousel-next');
+
+  if (!slides.length || !thumbStrip) return;
+
+  const total = slides.length;
+  let current = 0;
+  let intervalId = null;
+  const cycleMs = 4500;
+
+  slides.forEach((slide, i) => {
+    const img = slide.querySelector('img');
+    const thumb = document.createElement('button');
+    thumb.type = 'button';
+    thumb.className = 'hero-thumb-btn' + (i === 0 ? ' active' : '');
+    thumb.setAttribute('aria-label', slide.dataset.title || 'Product ' + (i + 1));
+    if (img) {
+      const thumbImg = document.createElement('img');
+      thumbImg.src = img.src;
+      thumbImg.alt = '';
+      thumb.appendChild(thumbImg);
+    }
+    thumb.addEventListener('click', () => goTo(i));
+    thumbStrip.appendChild(thumb);
+  });
+
+  const thumbs = thumbStrip.querySelectorAll('.hero-thumb-btn');
+
+  function pad(n) {
+    return String(n).padStart(2, '0');
+  }
+
+  function updateSlides() {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === current);
+    });
+
+    thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === current));
+
+    const active = slides[current];
+    if (captionCat) captionCat.textContent = active.dataset.category || '';
+    if (captionTitle) captionTitle.textContent = active.dataset.title || '';
+    if (counter) counter.textContent = pad(current + 1) + ' / ' + pad(total);
+  }
+
+  function resetProgress() {
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    progressBar.offsetHeight;
+    progressBar.style.transition = 'width ' + cycleMs + 'ms linear';
+    progressBar.style.width = '100%';
+  }
+
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    updateSlides();
+    resetProgress();
+    restartAuto();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function restartAuto() {
+    clearInterval(intervalId);
+    intervalId = setInterval(next, cycleMs);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+
+  carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+  carousel.addEventListener('mouseleave', restartAuto);
+
+  updateSlides();
+  resetProgress();
+  restartAuto();
 }
 
 /* Auto-cycling Interactive Product Showcase Slider */
