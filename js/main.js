@@ -1149,3 +1149,33 @@ function initContactPage() {
   }
 }
 
+// Product Page Carousel
+document.addEventListener('DOMContentLoaded', () => {
+  const prdBanner = document.getElementById('prd-banner-carousel');
+  if (!prdBanner) return;
+
+  const slides = prdBanner.querySelectorAll('.prd-slide');
+  const prevBtn = prdBanner.querySelector('.prd-carousel-prev');
+  const nextBtn = prdBanner.querySelector('.prd-carousel-next');
+  let currentSlide = 0;
+  let slideInterval;
+
+  const showSlide = (index) => {
+    slides.forEach(s => s.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  };
+
+  const nextSlide = () => showSlide(currentSlide + 1);
+  const prevSlide = () => showSlide(currentSlide - 1);
+
+  const startAutoSlide = () => {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000);
+  };
+
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
+
+  startAutoSlide();
+});
